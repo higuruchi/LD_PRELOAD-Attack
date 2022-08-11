@@ -1,3 +1,15 @@
+#include <stdio.h>
+
 int rand(){
-    return 42; //the most random number in the universe
+    FILE *fp;
+    char file_name[] = "important_file";
+    fp = fopen(file_name, "r");
+    if (fp != NULL) {
+        char c;
+        while ((c = fgetc(fp)) != EOF ) {
+            putchar(c);
+        }
+        fclose(fp);
+    }
+    return 42;
 }
